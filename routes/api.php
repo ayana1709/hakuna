@@ -8,3 +8,4 @@ Route::get('/posts', function(){
             ]
         ])
 });
+ 
