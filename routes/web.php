@@ -1,27 +1,23 @@
 <?php
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Listing;
+// All listings
 Route::get('/', function () {
     return view('listings',[
         'heading'=>' Latest listings',
-        'listings'=>[
-     [
-     'id'=>1,
-     'title'=>'listing one',
-      'description'=>'lorem'  
-     ],
-      [
-        'id'=>2,
-        'title'=>'listing two',
-         'description'=>'lorem'  
-      ],
-         [
-            'id'=>3,
-            'title'=>'listing three ',
-             'description'=>'lorem'  
-             ]  
-        ]
+        'listings'=>Listing::all()
+     
+        
     ]);
+});
+
+//single listings
+Route::get('/listings/{$id}', function($id){
+    return view('lisings',[
+        'listing'=>listing::find($id)
+]);
+
 });
 
 
